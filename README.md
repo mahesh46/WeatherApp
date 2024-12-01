@@ -1,2 +1,2 @@
 # WeatherApp
-WeatherApp CGX technical assessment
+WeatherApp CGX technical assessment.
