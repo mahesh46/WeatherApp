@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FCA58A1C2CFC7A6800D31209 /* OpenMeteoSdk in Frameworks */ = {isa = PBXBuildFile; productRef = FCA58A1B2CFC7A6800D31209 /* OpenMeteoSdk */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FC1DE8AA2CFA525F0041CE9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA58A1C2CFC7A6800D31209 /* OpenMeteoSdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = WeatherApp;
 			packageProductDependencies = (
+				FCA58A1B2CFC7A6800D31209 /* OpenMeteoSdk */,
 			);
 			productName = WeatherApp;
 			productReference = FC1DE8992CFA525E0041CE9F /* WeatherApp.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = FC1DE8902CFA525D0041CE9F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FCA58A1A2CFC7A6800D31209 /* XCRemoteSwiftPackageReference "sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FC1DE89A2CFA525E0041CE9F /* Products */;
 			projectDirPath = "";
@@ -558,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCA58A1A2CFC7A6800D31209 /* XCRemoteSwiftPackageReference "sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/open-meteo/sdk.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCA58A1B2CFC7A6800D31209 /* OpenMeteoSdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCA58A1A2CFC7A6800D31209 /* XCRemoteSwiftPackageReference "sdk" */;
+			productName = OpenMeteoSdk;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC1DE8912CFA525E0041CE9F /* Project object */;
 }
