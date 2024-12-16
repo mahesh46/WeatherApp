@@ -12,7 +12,10 @@ class WeatherService {
     private let weatherBaseURL = "https://api.open-meteo.com/v1/forecast"
     
     func getCoordinates(for location: String) async throws -> Coordinates {
-        guard let url = URL(string: "\(geoCodingBaseURL)?q=\(location.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&api_key=674b76894c01a105993848mko0c6996") else {
+        guard let apiKey = ProcessInfo.processInfo.environment["api_key"] else {
+            fatalError("Add api_key as an Environment Variable in your app's scheme.")
+            }
+        guard let url = URL(string: "\(geoCodingBaseURL)?q=\(location.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&api_key=\(apiKey)") else {
             throw URLError(.badURL)
         }
         
@@ -22,7 +25,7 @@ class WeatherService {
         guard let firstResult = decodedResponse.first else {
             throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Location not found"])
         }
-        //print(firstResult)
+       
         return Coordinates(latitude: Double(firstResult.lat) ?? 0.0, longitude: Double(firstResult.lon) ?? 0.0)
     }
     func getWeather(latitude: Double, longitude: Double) async throws -> WeatherData {
